@@ -63,42 +63,6 @@ public class Pacman extends PacmanActor{
 	    }
 
 	    @Override
-	    public void updateTitle() {
-	        yield:
-	        while (true) {
-	            switch (instructionPointer) {
-	                case 0:
-	                    waitTime = System.currentTimeMillis();
-	                    instructionPointer = 1;
-	                case 1:
-	                    if (System.currentTimeMillis() - waitTime < 3000) {
-	                        break yield;
-	                    }
-	                    instructionPointer = 2;
-	                case 2:
-	                    direction = 0;
-	                    if (!moveToTargetPosition(250, 200, 1)) {
-	                    waitTime = System.currentTimeMillis();
-	                        instructionPointer = 3;
-	                    }
-	                    break yield;
-	                case 3:
-	                    if (System.currentTimeMillis() - waitTime < 3000) {
-	                        break yield;
-	                    }
-	                    instructionPointer = 4;
-	                case 4:
-	                    direction = 2;
-	                    if (!moveToTargetPosition(-100, 200, 1)) {
-	                        instructionPointer = 0;
-	                    }
-	                    break yield;
-	            }
-	        }
-	        updateAnimation();
-	    }
-	    
-	    @Override
 	    public void updatePlaying() {
 	        if (!visible) {
 	            return;
@@ -213,13 +177,7 @@ public class Pacman extends PacmanActor{
 
 	    @Override
 	    public void stateChanged() {
-	        if (game.getState() == PacmanGame.State.TITLE) {
-	            x = -100;
-	            y = 200;
-	            instructionPointer = 0;
-	            visible = true;
-	        }
-	        else if (game.getState() == State.READY) {
+	    	if (game.getState() == State.GAMESTART) {
 	            visible = false;
 	        }
 	        else if (game.getState() == State.READY2) {

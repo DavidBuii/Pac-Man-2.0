@@ -9,12 +9,10 @@ import Actors.GameOver;
 import Actors.Ghost;
 import Actors.HUD;
 import Actors.Initializer;
-import Actors.Opening;
 import Actors.Pacman;
 import Actors.Point;
 import Actors.PowerBall;
 import Actors.Ready;
-import Actors.Title;
 import GameInfrastructure.Actor;
 import GameInfrastructure.Game;
 
@@ -54,11 +52,11 @@ public class PacmanGame extends Game{
 		        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		    };
 	
-	public static enum State { INITIALIZING, DB_PRESENTS, TITLE, READY, READY2
-        , PLAYING, PACMAN_DIED, GHOST_CATCHED, LEVEL_CLEARED, GAME_OVER }
+	public static enum State {INITIALIZING, GAMESTART, READY2
+        , PLAYING, PACMAN_DIED, GHOST_CATCHED, LEVEL_CLEARED, GAME_OVER,}
 	
     public State state = State.INITIALIZING;
-    public int lives = 3;
+    public int lives = 1;
     public int score;
     public int hiscore;
     
@@ -114,7 +112,7 @@ public class PacmanGame extends Game{
     }
     
     public void startGame() {
-        setState(State.READY);
+        setState(State.GAMESTART);
     }
     
     public void startGhostVulnerableMode() {
@@ -142,13 +140,13 @@ public class PacmanGame extends Game{
     }
 
     public void nextLevel() {
-        setState(State.READY);
+        setState(State.GAMESTART);
     }
 
-    public void returnToTitle() {
+    public void returnToREADY() {
         lives = 3;
         score = 0;
-        setState(State.TITLE);
+        setState(State.GAMESTART);
     }
     
     //Add all the Actors
@@ -161,8 +159,6 @@ public class PacmanGame extends Game{
     private void addAllObjs() {
         Pacman pacman = new Pacman(this);
         actors.add(new Initializer(this));
-        actors.add(new Opening(this));
-        actors.add(new Title(this));
         actors.add(new Background(this));
         foodCount = 0;
         for (int row=0; row<31; row++) {

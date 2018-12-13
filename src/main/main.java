@@ -20,8 +20,10 @@ public class main {
 				frame.setTitle("Pacman 2.0");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.getContentPane().add(view);
+				
 				frame.pack();
-				frame.setLocationRelativeTo(null);
+				//Makes the frame larger
+				
 				frame.setVisible(true);
 				view.requestFocus();
 				view.start();

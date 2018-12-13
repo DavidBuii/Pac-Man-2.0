@@ -1,4 +1,4 @@
-package Actors;
+/*package Actors;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -24,7 +24,7 @@ public class Title extends PacmanActor{
     
     @Override
     public void updateTitle() {
-        yield:
+    	yield:
         while (true) {
             switch (instructionPointer) {
                 case 0:
@@ -60,7 +60,7 @@ public class Title extends PacmanActor{
 
     @Override
     public void draw(Graphics2D g) {
-        if (!visible) {
+    	if (!visible) {
             return;
         }
         super.draw(g);
@@ -86,3 +86,4 @@ public class Title extends PacmanActor{
     }
         
 }
+*/

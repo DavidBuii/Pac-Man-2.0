@@ -18,21 +18,11 @@ public class Ready extends PacmanActor{
 
 	    @Override
 	    public void updateReady() {
-	        yield:
+System.out.println("I am ready READY");
+	    	yield:
 	        while (true) {
-	            switch (instructionPointer) {
-	                case 0:
-	                    game.restoreCurrentFoodCount();
-	                    //game.sounds.get("start").play();
-	                    waitTime = System.currentTimeMillis();
-	                    instructionPointer = 1;
-	                case 1:
-	                    if (System.currentTimeMillis() - waitTime < 2000) { // || game.sounds.get("start").isPlaying()) {
-	                        break yield;
-	                    }
 	                    game.setState(State.READY2);
-	                    break yield;
-	            }
+	                    break yield;            
 	        }
 	    }
 	    
@@ -60,7 +50,7 @@ public class Ready extends PacmanActor{
 	    @Override
 	    public void stateChanged() {
 	        visible = false;
-	        if (game.getState() == PacmanGame.State.READY 
+	        if (game.getState() == PacmanGame.State.GAMESTART 
 	                || game.getState() == PacmanGame.State.READY2) {
 	            
 	            visible = true;

@@ -23,8 +23,8 @@ public class HUD extends PacmanActor{
 		}
 		game.drawText(g, "SCORE", 10, 1);
 		game.drawText(g, game.getScore(), 10, 10);
-		game.drawText(g, "HIGH SCORE ", 78, 1);
-		game.drawText(g, game.getHiscore(), 90, 10);
+		game.drawText(g, "HIGH SCORE ", 140, 1);
+		game.drawText(g, game.getHiscore(), 140, 10);
 		game.drawText(g, "LIVES: ", 10, 274);
 		for (int lives = 0; lives < game.lives; lives++) {
 			g.drawImage(frame, 60 + 20 * lives, 272, null);
@@ -35,7 +35,6 @@ public class HUD extends PacmanActor{
 
 	@Override
 	public void stateChanged() {
-		visible = (game.state != State.INITIALIZING)
-				&& (game.state !=State.DB_PRESENTS);
+		visible = (game.state != State.GAMESTART);
 	}
 }
