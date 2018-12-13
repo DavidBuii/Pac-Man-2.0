@@ -15,17 +15,26 @@ public class GameOver extends PacmanActor{
 		x = 77;
 		y = 160;
 		loadFrames("/res/gameover.png");
-		System.out.println("Hello GAMEOVER");
 		
-		//updateGameOver();
 	}
 
 
 	@Override
 	public void updateGameOver() {
-
-		game.returnToREADY();
-
+		yield:
+	        while (true) {
+	            switch (instructionPointer) {
+	                case 0:
+	                    waitTime = System.currentTimeMillis();
+	                    instructionPointer = 1;
+	                case 1:
+	                    if (System.currentTimeMillis() - waitTime < 2000) {
+	                        break yield;
+	                    }
+	                    game.returnToREADY();
+	                    break yield;
+	            }
+	        }
 	}
 
 	// broadcast messages

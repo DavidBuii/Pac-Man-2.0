@@ -17,17 +17,17 @@ public class Ready extends PacmanActor{
 	    }
 
 	    @Override
-	    public void updateReady() {
-System.out.println("I am ready READY");
+	    public void updateStart() {
+
 	    	yield:
 	        while (true) {
-	                    game.setState(State.READY2);
+	                    game.setState(State.READY);
 	                    break yield;            
 	        }
 	    }
 	    
 	    @Override
-	    public void updateReady2() {
+	    public void updateReady() {
 	        yield:
 	        while (true) {
 	            switch (instructionPointer) {
@@ -51,7 +51,7 @@ System.out.println("I am ready READY");
 	    public void stateChanged() {
 	        visible = false;
 	        if (game.getState() == PacmanGame.State.GAMESTART 
-	                || game.getState() == PacmanGame.State.READY2) {
+	                || game.getState() == PacmanGame.State.READY) {
 	            
 	            visible = true;
 	            instructionPointer = 0;

@@ -12,13 +12,13 @@ public class PacmanActor extends Actor<PacmanGame>{
 	public void update() {
 		switch (game.getState()) {
 		case INITIALIZING: updateInitializing(); break;
-		case GAMESTART: updateReady(); break;
-		case READY2: updateReady2(); break;
+		case GAMESTART: updateStart(); break;
+		case READY: updateReady(); break;
 		case PLAYING: updatePlaying(); break;
 		case PACMAN_DIED: updatePacmanDied(); break;
 		case GHOST_CATCHED: updateGhostCatched(); break;
 		case LEVEL_CLEARED: updateLevelCleared(); break;
-		//case GAME_OVER: updateGameOver(); break;
+		case GAME_OVER: updateGameOver(); break;
 		}
 	}
 
@@ -26,10 +26,10 @@ public class PacmanActor extends Actor<PacmanGame>{
 	}
 
 
-	public void updateReady() {
+	public void updateStart() {
 	}
 
-	public void updateReady2() {
+	public void updateReady() {
 	}
 
 	public void updatePlaying() {

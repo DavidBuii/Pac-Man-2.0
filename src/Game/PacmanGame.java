@@ -52,7 +52,7 @@ public class PacmanGame extends Game{
 		        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		    };
 	
-	public static enum State {INITIALIZING, GAMESTART, READY2
+	public static enum State {INITIALIZING, GAMESTART, READY
         , PLAYING, PACMAN_DIED, GHOST_CATCHED, LEVEL_CLEARED, GAME_OVER,}
 	
     public State state = State.INITIALIZING;
@@ -131,7 +131,7 @@ public class PacmanGame extends Game{
             setState(State.GAME_OVER);
         }
         else {
-            setState(State.READY2);
+            setState(State.READY);
         }
     }
 

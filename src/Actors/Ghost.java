@@ -481,7 +481,7 @@ public class Ghost extends PacmanActor{
 		if (game.getState() == PacmanGame.State.GAMESTART) {
 			visible = false;
 		}
-		else if (game.getState() == PacmanGame.State.READY2) {
+		else if (game.getState() == PacmanGame.State.READY) {
 			setMode(Mode.CAGE);
 			updateAnimation();
 			Point initialPosition = initialPositions[type];

@@ -180,7 +180,7 @@ public class Pacman extends PacmanActor{
 	    	if (game.getState() == State.GAMESTART) {
 	            visible = false;
 	        }
-	        else if (game.getState() == State.READY2) {
+	        else if (game.getState() == State.READY) {
 	            reset();
 	        }
 	        else if (game.getState() == State.PLAYING) {
